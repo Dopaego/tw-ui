@@ -1,0 +1,44 @@
+/* ==================== CSS Reset ==================== */
+body {
+    font-family: var(--tw-font-family);
+    font-weight: 400;                   /* 原中文符号：400： 已修正 */
+    font-size: var(--tw-font-size-base);
+    color: var(--tw-text-color-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* 链接默认样式 */
+  a {
+    color: var(--tw-color-primary);
+    text-decoration: none;               /* 原错误拼写 nong 已修正 */
+    transition: color 0.2s;
+  }
+  a:hover,
+  a:focus {
+    color: var(--tw-color-primary-light-3);  /* 原中文括号 var（...） 已修正 */
+  }
+  a:active {
+    color: var(--tw-color-primary-dark-2);
+  }
+  
+  /* 删除手机端点击阴影 */
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+/* ==================== 标题标签样式 ==================== */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: var(--tw-font-family);
+    font-weight: var(--tw-font-weight-primary); /* 500 */
+    color: var(--tw-text-color-primary);
+    line-height: 1.5;
+  }
+  
+  h1 { font-size: var(--tw-font-size-extra-large); } /* 20px */
+  h2 { font-size: var(--tw-font-size-large); }       /* 18px */
+  h3 { font-size: var(--tw-font-size-medium); }      /* 16px */
+  h4 { font-size: var(--tw-font-size-base); }        /* 14px */
+  h5 { font-size: var(--tw-font-size-small); }       /* 13px */
+  h6 { font-size: var(--tw-font-size-extra-small); } /* 12px */
