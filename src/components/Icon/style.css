@@ -1,0 +1,16 @@
+.tw-icon{
+    --tw-icon-color: inherit;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    fill: currentColor;
+    color: var(--tw-icon-color);
+    font-size: inherit;
+}
+
+@each $val in primary,info,success,warning,danger{
+    .tw-icon--$(val) {
+        --tw-icon-color:var(--tw-color-$(val));
+    }
+}

@@ -1,0 +1,60 @@
+.tw-collapse {
+    --tw-collapse-border-color: var(--tw-border-color-light);
+    --tw-collapse-header-height: 48px;
+    --tw-collapse-header-bg-color: var(--tw-fill-color-blank);
+    --tw-collapse-header-text-color: var(--tw-text-color-primary);
+    --tw-collapse-header-font-size: 13px;
+    --tw-collapse-content-bg-color: var(--tw-fill-color-blank);
+    --tw-collapse-content-font-size: 13px;
+    --tw-collapse-content-text-color: var(--tw-text-color-primary);
+    --tw-collapse-disabled-text-color: var(--tw-disabled-text-color);
+    --tw-collapse-disabled-border-color: var(--tw-border-color-lighter);
+    border-top: 1px solid var(--tw-collapse-border-color);
+    border-bottom: 1px solid var(--tw-collapse-border-color);
+}
+.tw-collapse-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--tw-collapse-header-height);
+    line-height: var(--tw-collapse-header-height);
+    background-color: var(--tw-collapse-header-bg-color);
+    color: var(--tw-collapse-header-text-color);
+    cursor: pointer;
+    font-size: var(--tw-collapse-header-font-size);
+    font-weight: 500;
+    transition: border-bottom-color var(--tw-transition-duration);
+    outline: none;
+    border-bottom: 1px solid var(--tw-collapse-border-color);
+    &.is-disabled{
+        color: var(--tw-collapse-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+    }
+    &.is-active {
+        border-bottom-color: transparent;
+        .header-angle{
+            transform: rotate(90deg);
+        }
+    }
+    .header-angle{
+        transition: transform var(--tw-transition-duration);
+    }
+}
+.tw-collapse-item__content {
+    will-change: height;
+    background-color: var(--tw-collapse-content-bg-color);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: var(--tw-collapse-content-font-size);
+    color: var(--tw-collapse-content-text-color);
+    border-bottom: 1px solid var(--tw-collapse-border-color);
+    padding-bottom: 25px;
+    padding-top: 10px;
+}
+
+.slide-enter-active, .slide-leave-active{
+    transition: height var(--tw-transition-duration); 
+}
+
+
