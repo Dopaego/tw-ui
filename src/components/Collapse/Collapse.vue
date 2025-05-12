@@ -24,17 +24,20 @@ if (props.accordin && activeNames.value.length > 1) {
   console.warn('accordin mode should only have one active item')
 }
 const handleItemClick = (item: NameType) => {
+  let _activeNames = [...activeNames.value]
   if (props.accordin) {
-    activeNames.value = [activeNames.value[0] === item ? '' : item]
+    _activeNames = [activeNames.value[0] === item ? '' : item]
+    activeNames.value = _activeNames
   } else {
-    const index = activeNames.value.indexOf(item)
+    const index = _activeNames.indexOf(item)
     if (index > -1) {
       //删除
-      activeNames.value.splice(index, 1)
+      _activeNames.splice(index, 1)
     } else {
       //不存在，添加
-      activeNames.value.push(item)
+      _activeNames.push(item)
     }
+    activeNames.value = _activeNames
   }
   emits('update:modelValue', activeNames.value)
   emits('change', activeNames.value)

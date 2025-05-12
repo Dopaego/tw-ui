@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import Button from './components/Button/Button.vue'
 import { onMounted, ref } from 'vue'
+import { createPopper } from '@popperjs/core'
+import type { Instance } from '@popperjs/core'
 import type { ButtonInstance } from './components/Button/types'
 import Collapse from './components/Collapse/Collapse.vue'
 import Icon from './components/Icon/Icon.vue'
 import Item from './components/Collapse/CollapseItem.vue'
+import Alert from './components/Alert/Alert.vue'
+const overlayNode = ref<HTMLElement>()
+const triggerNode = ref<HTMLElement>()
+let popperInstance: Instance | null = null
 const buttonRef = ref<ButtonInstance | null>(null)
 const size = ref<'3x' | '2xl'>('3x')
 const openedValue = ref(['a'])
@@ -12,16 +18,30 @@ onMounted(() => {
   if (buttonRef.value) {
     console.log('buttonRef', buttonRef.value.ref)
   }
+  if (overlayNode.value && triggerNode.value) {
+    popperInstance = createPopper(triggerNode.value, overlayNode.value, { placement: 'right' })
+  }
   setTimeout(() => {
     openedValue.value = ['a', 'b']
     size.value = '2xl'
+    popperInstance?.setOptions({ placement: 'bottom' })
   }, 2000)
 })
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="./assets/logo.svg"
+      width="125"
+      height="125"
+      ref="triggerNode"
+    />
+    <div ref="overlayNode">
+      <h1>Hello Tooltip</h1>
+    </div>
   </header>
   <Icon icon="arrow-up" :size="size" type="danger" color="orange" />
   <main>
@@ -62,6 +82,12 @@ onMounted(() => {
       </Item>
       {{ openedValue }}
     </Collapse>
+    <Alert type="primary" closed>
+      <p>this is a block</p>
+    </Alert>
+    <Alert type="warning" effect="dark">
+      <p>this is a block</p>
+    </Alert>
   </main>
 </template>
 

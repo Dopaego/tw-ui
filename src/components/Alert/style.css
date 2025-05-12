@@ -1,0 +1,35 @@
+.tw-alert{
+    --tw-alert-font-weight: var(--tw-font-weight-primary);
+}
+.tw-alert{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: auto;
+    padding-right: 20px;
+    /*  */
+}
+
+@each $val in primary,success,warning,info,danger{
+    .tw-alert--$(val).tw-alert--light{
+        color: var(--tw-color-$val);
+        background-color: var(--tw-color-$(val)-light-8);
+    }
+    .tw-alert--$(val).tw-alert--dark{
+        color: var(--tw-color-white);
+        background-color: var(--tw-color-$(val));
+    }
+
+}
+.tw-alert-content{
+    margin-left: 20px;
+}
+.fade-leave-active{
+    transition: opacity 0.5s ease;
+}
+.fade-leave-to{
+    opacity: 0;
+}
