@@ -42,6 +42,7 @@ const handleItemClick = (item: NameType) => {
   emits('update:modelValue', activeNames.value)
   emits('change', activeNames.value)
 }
+// 提供 collapseContext
 provide(collapseContextKey, {
   activeNames,
   handleItemClick,

@@ -38,6 +38,7 @@ defineOptions({
   name: 'TwCollapseItem',
 })
 const props = defineProps<CollapseItemProps>()
+// 注入 collapseContext
 const collapseContext = inject(collapseContextKey)
 const isActive = computed(() => collapseContext?.activeNames.value.includes(props.name))
 const handleClick = () => {
