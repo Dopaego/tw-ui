@@ -9,6 +9,7 @@ import Icon from './components/Icon/Icon.vue'
 import Item from './components/Collapse/CollapseItem.vue'
 import Alert from './components/Alert/Alert.vue'
 import type { TooltipInstance } from './components/Tooltip/types'
+import { createMessage } from './components/Message/method'
 const triggerNode = ref<HTMLElement>()
 const buttonRef = ref<ButtonInstance | null>(null)
 const tooltipRef = ref<TooltipInstance | null>(null)
@@ -25,9 +26,13 @@ onMounted(() => {
   if (buttonRef.value) {
     console.log('buttonRef', buttonRef.value.ref)
   }
+  createMessage({ message: ' hello world', duration: 0, type: 'warning' })
+  createMessage({ message: 'hello again', duration: 0, type: 'success' })
+  createMessage({ message: 'hello again again', duration: 0 })
   setTimeout(() => {
     openedValue.value = ['a', 'b']
     size.value = '2xl'
+    // instance.destroy()
   }, 2000)
 })
 </script>
