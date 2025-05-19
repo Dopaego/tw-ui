@@ -33,7 +33,6 @@ import { getLastBottomOffset } from './method'
 import useEventListener from '../../hooks/useEventListener'
 defineOptions({
   name: 'TwMessage',
-  x,
 })
 const props = withDefaults(defineProps<MessageProps>(), {
   type: 'info',
